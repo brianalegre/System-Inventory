@@ -23,10 +23,10 @@ Systems.init(
             allowNull: true,
             unique: true,
         },
-        // state: {
-        //     type: DataTypes.BOOLEAN,
-        //     allowNull: false,
-        // },
+        state: {
+            type: DataTypes.BOOLEAN,
+            allowNull: false,
+        },
     },
     {
         sequelize,

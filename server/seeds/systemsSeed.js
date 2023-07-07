@@ -6,12 +6,12 @@ const systemsData = [
     {
         system_name: "SYS-1",
         ip_address: "192.168.100.100",
-        // state: 0,
+        state: 0,
     },
     {
         system_name: "SYS-2",
         ip_address: "192.168.100.101",
-        // state: 1,
+        state: 1,
     },
 ]
 
