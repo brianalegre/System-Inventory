@@ -19,16 +19,22 @@ Systems.init(
             unique: true,
         },
         ip_address: {
-            type: DataTypes.INTEGER,
+            type: DataTypes.STRING(16),
             allowNull: true,
             unique: true,
-            validat: {
-                isAlphaNumeric: true,
-            },
         },
-        state: {
-            type: DataTypes.BOOLEAN,
-            allowNull: false,
-        },
+        // state: {
+        //     type: DataTypes.BOOLEAN,
+        //     allowNull: false,
+        // },
+    },
+    {
+        sequelize,
+        freezeTableName: true,
+        underscored: true,
+        modelName: 'Systems',
     }
 )
+
+// Export
+module.exports = Systems
