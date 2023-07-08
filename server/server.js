@@ -1,19 +1,33 @@
-// Import express
-const express = require('express')
-const app = express()
-
-// SQL connection
-const sequelize = require('./config/connection');
+const path = require('path');
+const express = require('express');
+const session = require('express-session');
 // const SequelizeStore = require('connect-session-sequelize')(session.Store);
-const PORT = process.env.PORT || 3001;
 
-// Create route
-app.get("/api", (req, res) => {
-    res.json({ "users": ["userOne", "userTwo", "userThree"] })
-})
+const routes = require('./controller');
+const sequelize = require('./config/connection');
 
-// Tell the backend which port the backend started on
-app.listen(5000, () => { console.log("Server started on port 5000") })
+const app = express();
+const PORT = process.env.PORT || 3001
+
+// const sess = {
+//     secret: 'Super secret secret',
+//     cookie: {
+//         maxAge: 1000 * 60 * 60,
+//     },
+//     resave: false,
+//     saveUninitialized: true,
+//     store: new SequelizeStore({
+//         db: sequelize,
+//     }),
+// };
+
+// app.use(session(sess));
+
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+app.use(express.static(path.join(__dirname, 'public')));
+
+app.use(routes);
 
 sequelize.sync({ force: false }).then(() => {
     app.listen(PORT, () => console.log('Now listening'));

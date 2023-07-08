@@ -1,43 +1,9 @@
-// Import the router, and the models
+// Import 
 const router = require('express').Router();
-const { Systems } = require('../../models')
+const systemsAPI = require('./Systems');
 
-
-// Get All Systems
-// Endpoint /api/systems
-router.get('/', async (req, res) => {
-    try {
-        // Query All Systems
-        const getAllSystems = await Systems.findAll({
-        })
-
-        // Return data
-        res.status(200).json(getAllSystems)
-    } catch (err) {
-        res.status(500).json('Something went wrong', err);
-    }
-})
-
-// Get Single System
-// Endpoint /api/systems/:id
-router.get('/:system_id', async (req, res) => {
-    try {
-        // Query by system_id
-        const getSingleSystem = await Systems.findByPk(req.params.system_id, {
-        })
-
-        // If no system found
-        if (!getSingleSystem) {
-            res.status(404).json({ message: 'No System Found with that ID' })
-        }
-
-        // Return data
-        res.status(200).json(getSingleSystem)
-
-    } catch (err) {
-        res.status(500).json('getSingleSystem - something went wrong')
-    }
-})
+// Routers
+router.use('/systems', systemsAPI);
 
 // Export
 module.exports = router;
