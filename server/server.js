@@ -1,27 +1,20 @@
-const path = require('path');
+// Import Express
 const express = require('express');
 const session = require('express-session');
-// const SequelizeStore = require('connect-session-sequelize')(session.Store);
 
+// Import Module for directories
+const path = require('path');
+
+// Import API controller
 const routes = require('./controller');
+
+// Import Sequelize
 const sequelize = require('./config/connection');
 
+
+// Start App
 const app = express();
 const PORT = process.env.PORT || 3001
-
-// const sess = {
-//     secret: 'Super secret secret',
-//     cookie: {
-//         maxAge: 1000 * 60 * 60,
-//     },
-//     resave: false,
-//     saveUninitialized: true,
-//     store: new SequelizeStore({
-//         db: sequelize,
-//     }),
-// };
-
-// app.use(session(sess));
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
