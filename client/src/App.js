@@ -1,3 +1,23 @@
+// Import
+import React from "react";
+import "./index.css";
+
+
+// Import Components
+import Navbar from "./Components/Navbar";
+
+
+// Main Application
+function App() {
+  return (
+    <div>
+      <Navbar />
+    </div>
+  )
+};
+
+
+export default App;
 
 
 
