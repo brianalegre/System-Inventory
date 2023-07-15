@@ -48,7 +48,7 @@ function App() {
   // }, []);
 
   useEffect(() => {
-    fetch('https://localhost:3001/api/systems')
+    fetch('http://localhost:3001/api/systems/')
       .then((response) => response.json())
       .then((data) => {
         console.log(data);
