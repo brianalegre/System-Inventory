@@ -4,16 +4,16 @@ import "./index.css";
 
 
 // Import Components
-import Navbar from "./Components/Navbar";
 import Search from "./Components/Search";
 import Inventory from "./Components/Inventory";
+import Navbar from "./Components/Navbars";
 
 // Main Application
 function App() {
   return (
     <div>
       <Navbar />
-      <Search />
+      {/* <Search /> */}
       <Inventory />
     </div>
   )
