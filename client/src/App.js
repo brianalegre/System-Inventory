@@ -20,19 +20,44 @@ function App() {
   //   setDeviceInventory(data);
   //   console.log('hi', data)
   // };
-  const fetchInventory = () => {
-    fetch('/api/systems')
-      .then((response => response.json())
-        .then((data) => setDeviceInventory(data))
-        .catch((err) => console.log(err))
-      )
-  }
+  // const fetchInventory = () => {
+  //   fetch('/api/systems')
+  //     .then((response => response.json())
+  //       .then((data) => setDeviceInventory(data))
+  //       .catch((err) => console.log(err))
+  //     )
+  // }
 
 
-  // useEffect to fetch data from API
+  // // useEffect to fetch data from API
   // useEffect(() => {
   //   fetchInventory();
   // }, []);
+
+  // const [posts, setPosts] = useState([]);
+  // useEffect(() => {
+  //   fetch('https://jsonplaceholder.typicode.com/posts?_limit=10')
+  //     .then((response) => response.json())
+  //     .then((data) => {
+  //       console.log(data);
+  //       setPosts(data);
+  //     })
+  //     .catch((err) => {
+  //       console.log(err.message);
+  //     });
+  // }, []);
+
+  useEffect(() => {
+    fetch('https://localhost:3001/api/systems')
+      .then((response) => response.json())
+      .then((data) => {
+        console.log(data);
+        setDeviceInventory(data);
+      })
+      .catch((err) => {
+        console.log(err.message);
+      });
+  }, []);
 
 
   return (
