@@ -6,7 +6,7 @@ import "./index.css";
 // Import Components
 import Navbar from "./Components/Navbar";
 import Search from "./Components/Search";
-
+import Inventory from "./Components/Inventory";
 
 // Main Application
 function App() {
@@ -14,6 +14,7 @@ function App() {
     <div>
       <Navbar />
       <Search />
+      <Inventory />
     </div>
   )
 };

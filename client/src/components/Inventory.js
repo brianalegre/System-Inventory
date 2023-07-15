@@ -7,14 +7,19 @@ function Inventory(dataFromApi) {
     // Map out each items returned into a table
     // Use all data that is returned
 
-    const inventoryData = dataFromApi.map(inventoryDatas) => {
-
-    }
+    const inventoryData = dataFromApi.map((inventoryDatas) => (
+        < tr >
+            <td>{inventoryDatas.system_id}</td>
+            <td>{inventoryDatas.system_name}</td>
+            <td>{inventoryDatas.ip_address}</td>
+            <td>{inventoryDatas.state}</td>
+        </tr >
+    )
+    )
 
     return (
-
         <div>
-
+            {inventoryData}
         </div>
 
 
