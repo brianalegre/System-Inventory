@@ -53,10 +53,10 @@ router.post('/', async (req, res) => {
             state: req.body.state,
         })
         // Response
-        res.json('Sucess, new system created')
+        res.json('Success, new system created')
         // Catch errors
     } catch (err) {
-        return res.status(400).json('Unable to create new system', err)
+        res.status(400).json('Unable to create new system', err)
     }
 });
 
