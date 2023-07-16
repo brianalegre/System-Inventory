@@ -42,5 +42,23 @@ router.get('/:system_id', async (req, res) => {
     }
 })
 
+// Create New System
+// Endpoint /api/systems
+router.post('/', async (req, res) => {
+    try {
+        // Create new system
+        const createNewSystem = await Systems.create({
+            system_name: req.body.system_name,
+            system_ip_adress: req.body.ip_adress,
+            state: req.body.state,
+        })
+        // Response
+        res.json('Sucess, new system created')
+        // Catch errors
+    } catch (err) {
+        return res.status(400).json('Unable to create new system', err)
+    }
+});
+
 // Export
 module.exports = router;
