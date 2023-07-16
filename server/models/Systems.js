@@ -16,7 +16,7 @@ Systems.init(
         system_name: {
             type: DataTypes.STRING(16),
             allowNull: false,
-            unique: true,
+            unique: false,
         },
         ip_address: {
             type: DataTypes.STRING(16),

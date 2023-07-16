@@ -49,7 +49,7 @@ router.post('/', async (req, res) => {
         // Create new system
         const createNewSystem = await Systems.create({
             system_name: req.body.system_name,
-            system_ip_adress: req.body.ip_adress,
+            ip_address: req.body.ip_address,
             state: req.body.state,
         })
         // Response
