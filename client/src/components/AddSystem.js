@@ -41,16 +41,25 @@ function AddSystem() {
                 style={customStyles}
                 contentLabel="Example Modal"
             >
-                <h2 ref={(_subtitle) => (subtitle = _subtitle)}>Hello</h2>
-                <button onClick={closeModal}>close</button>
-                <div>I am a modal</div>
-                <form>
-                    <input />
-                    <button>tab navigation</button>
-                    <button>stays</button>
-                    <button>inside</button>
-                    <button>the modal</button>
+                <h2 ref={(_subtitle) => (subtitle = _subtitle)}>Add New System</h2>
+                <form className='bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4'>
+                    <div class="mb-4">
+                        <label class="block text-gray-700 text-sm font-bold mb-2" for="username">
+                            System Name
+                        </label>
+                        <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="systemName" type="text" placeholder="System Name" />
+                    </div>
+                    <div class="mb-4">
+                        <label class="block text-gray-700 text-sm font-bold mb-2" for="username">
+                            IP Address
+                        </label>
+                        <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="ipAddress" type="text" placeholder="IP Address" />
+                    </div>
                 </form>
+                <div>
+                    <button onClick={closeModal}>Submit</button>
+                    <button onClick={closeModal}>Cancel</button>
+                </div>
             </Modal>
         </div>
     );
