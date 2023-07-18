@@ -26,6 +26,7 @@ Systems.init(
         state: {
             type: DataTypes.BOOLEAN,
             allowNull: false,
+            defaultValue: false,
         },
     },
     {
