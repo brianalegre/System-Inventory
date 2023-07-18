@@ -3,21 +3,32 @@ import React from 'react';
 
 // Inventory Component
 // function Inventory(dataFromApi) {
-function Inventory() {
+function Inventory(deviceInventory) {
 
-    // Get data from prop - dataFromApi
+    // Get data from prop - deviceInventory
     // Map out each items returned into a table
     // Use all data that is returned
 
-    // const inventoryData = dataFromApi.map((inventoryDatas) => (
-    //     < tr >
-    //         <td>{inventoryDatas.system_id}</td>
-    //         <td>{inventoryDatas.system_name}</td>
-    //         <td>{inventoryDatas.ip_address}</td>
-    //         <td>{inventoryDatas.state}</td>
-    //     </tr >
-    // )
-    // )
+    const inventoryData = deviceInventory.map((item) => (
+        <tbody className="bg-white divide-y divide-gray-200 text-center">
+            <tr>
+                <td className="px-6 py-4 whitespace-nowrap">
+                    {item.system_id}
+                </td>
+                <td className="px-6 py-4 whitespace-nowrap">
+                    {item.system_name}
+                </td>
+                <td className="px-6 py-4 whitespace-nowrap">
+                    {item.ip_address}
+                </td>
+                <td className="px-6 py-4 whitespace-nowrap">
+                    {item.state}
+                </td>
+            </tr>
+        </tbody>
+    ))
+
+
 
     return (
         <div>
@@ -40,22 +51,7 @@ function Inventory() {
                     </tr>
                 </thead>
                 {/* center data */}
-                <tbody className="bg-white divide-y divide-gray-200 text-center">
-                    <tr>
-                        <td className="px-6 py-4 whitespace-nowrap">
-                            1
-                        </td>
-                        <td className="px-6 py-4 whitespace-nowrap">
-                            Personal
-                        </td>
-                        <td className="px-6 py-4 whitespace-nowrap">
-                            192.168.100.100
-                        </td>
-                        <td className="px-6 py-4 whitespace-nowrap">
-                            Active
-                        </td>
-                    </tr>
-                </tbody>
+                {inventoryData}
             </table>
 
         </div>
