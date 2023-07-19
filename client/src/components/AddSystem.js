@@ -81,6 +81,7 @@ function AddSystem() {
                             id="system_name"
                             type="text"
                             placeholder="System Name"
+                            onChange={handleChange}
                             value={formState.system_name} />
                     </div>
                     <div class="mb-4">
