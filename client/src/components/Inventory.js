@@ -18,25 +18,23 @@ export default function Inventory({ deviceInventory }) {
     //     // Use all data that is returned
 
     const inventoryData = deviceInventory.map((item) => (
-        <div>
 
-            <tbody className="bg-white divide-y divide-gray-200 text-center">
-                <tr>
-                    <td className="px-6 py-4 whitespace-nowrap">
-                        {item.system_id}
-                    </td>
-                    <td className="px-6 py-4 whitespace-nowrap">
-                        {item.system_name}
-                    </td>
-                    <td className="px-6 py-4 whitespace-nowrap">
-                        {item.ip_address}
-                    </td>
-                    <td className="px-6 py-4 whitespace-nowrap">
-                        {item.state}
-                    </td>
-                </tr>
-            </tbody>
-        </div>
+        <tbody className="bg-white divide-y divide-gray-200 text-center">
+            <tr>
+                <td className="px-6 py-4 whitespace-nowrap">
+                    {item.system_id}
+                </td>
+                <td className="px-6 py-4 whitespace-nowrap">
+                    {item.system_name}
+                </td>
+                <td className="px-6 py-4 whitespace-nowrap">
+                    {item.ip_address}
+                </td>
+                <td className="px-6 py-4 whitespace-nowrap">
+                    {item.state}
+                </td>
+            </tr>
+        </tbody>
     ))
 
 
