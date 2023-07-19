@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Modal from 'react-modal';
 
 const customStyles = {
@@ -16,7 +16,11 @@ Modal.setAppElement('#root');
 
 function AddSystem() {
     let subtitle;
-    const [modalIsOpen, setIsOpen] = React.useState(false);
+
+    // States
+    const [modalIsOpen, setIsOpen] = useState(false);
+    const [formState, setFormState] = useState({ system_name: '', ip_address: '' });
+
 
     function openModal() {
         setIsOpen(true);
@@ -29,6 +33,19 @@ function AddSystem() {
 
     function closeModal() {
         setIsOpen(false);
+    }
+
+    function submitModal = async (event) => {
+        // Send data to API
+        // console.log(formState);
+
+        // Close Modal
+        setIsOpen(false);
+    }
+
+    function handleChange(event) {
+        // update formState
+        setFormState({ ...formState, [event.target.id]: event.target.value });
     }
 
     return (
@@ -47,17 +64,26 @@ function AddSystem() {
                         <label class="block text-gray-700 text-sm font-bold mb-2" for="username">
                             System Name
                         </label>
-                        <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="systemName" type="text" placeholder="System Name" />
+                        <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                            id="system_name"
+                            type="text"
+                            placeholder="System Name"
+                            value={formState.system_name} />
                     </div>
                     <div class="mb-4">
                         <label class="block text-gray-700 text-sm font-bold mb-2" for="username">
                             IP Address
                         </label>
-                        <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="ipAddress" type="text" placeholder="IP Address" />
+                        <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                            id="ip_address"
+                            type="text"
+                            placeholder="IP Address"
+                            onChange={handleChange}
+                            value={formState.ip_address} />
                     </div>
                 </form>
                 <div>
-                    <button onClick={closeModal}>Submit</button>
+                    <button onClick={submitModal}>Submit</button>
                     <button onClick={closeModal}>Cancel</button>
                 </div>
             </Modal>
