@@ -35,10 +35,23 @@ function AddSystem() {
         setIsOpen(false);
     }
 
-    function submitModal = async (event) => {
+    const submitModal = async (event) => {
+        event.preventDefault();
         // Send data to API
-        // console.log(formState);
-
+        try {
+            const response = await fetch('http://localhost:3001/api/systems', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    system_name: formState.system_name,
+                    ip_address: formState.ip_address
+                })
+            });
+            const jsonData = await response.json();
+            console.log(jsonData);
+        } catch (err) {
+            console.error(err.message);
+        }
         // Close Modal
         setIsOpen(false);
     }

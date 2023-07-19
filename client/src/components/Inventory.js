@@ -1,33 +1,43 @@
 // Import React
 import React from 'react';
 
-// Inventory Component
-// function Inventory(dataFromApi) {
-function Inventory(deviceInventory) {
 
-    // Get data from prop - deviceInventory
-    // Map out each items returned into a table
-    // Use all data that is returned
+export default function Inventory({ deviceInventory }) {
+
+
+    // Inventory Component
+    // function Inventory(dataFromApi) {
+    // function Inventory(deviceInventory) {
+
+    //     // Save prop data to variable
+
+    //     console.log('deviceInventory: ', deviceInventory)
+
+    //     // Get data from prop - deviceInventory
+    //     // Map out each items returned into a table
+    //     // Use all data that is returned
 
     const inventoryData = deviceInventory.map((item) => (
-        <tbody className="bg-white divide-y divide-gray-200 text-center">
-            <tr>
-                <td className="px-6 py-4 whitespace-nowrap">
-                    {item.system_id}
-                </td>
-                <td className="px-6 py-4 whitespace-nowrap">
-                    {item.system_name}
-                </td>
-                <td className="px-6 py-4 whitespace-nowrap">
-                    {item.ip_address}
-                </td>
-                <td className="px-6 py-4 whitespace-nowrap">
-                    {item.state}
-                </td>
-            </tr>
-        </tbody>
-    ))
+        <div>
 
+            <tbody className="bg-white divide-y divide-gray-200 text-center">
+                <tr>
+                    <td className="px-6 py-4 whitespace-nowrap">
+                        {item.system_id}
+                    </td>
+                    <td className="px-6 py-4 whitespace-nowrap">
+                        {item.system_name}
+                    </td>
+                    <td className="px-6 py-4 whitespace-nowrap">
+                        {item.ip_address}
+                    </td>
+                    <td className="px-6 py-4 whitespace-nowrap">
+                        {item.state}
+                    </td>
+                </tr>
+            </tbody>
+        </div>
+    ))
 
 
     return (
@@ -60,5 +70,5 @@ function Inventory(deviceInventory) {
     )
 }
 
-// Export Inventory
-export default Inventory;
+// // Export Inventory
+// export default Inventory;

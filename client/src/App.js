@@ -18,7 +18,7 @@ function App() {
     fetch('http://localhost:3001/api/systems/')
       .then((response) => response.json())
       .then((data) => {
-        console.log(data);
+        console.log('App:', data);
         setDeviceInventory(data);
       })
       .catch((err) => {
