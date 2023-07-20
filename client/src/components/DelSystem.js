@@ -21,6 +21,11 @@ function DelSystem(checkboxState) {
     const [modalIsOpen, setIsOpen] = useState(false);
     const [formState, setFormState] = useState({ system_id: '' });
 
+    // Get system_id from prop - checkboxState
+    const system_id = checkboxState;
+    console.log('this is system_id from DelSystem:', system_id)
+
+
 
     function openModal() {
         setIsOpen(true);
@@ -38,22 +43,37 @@ function DelSystem(checkboxState) {
     const submitModal = async (event) => {
         event.preventDefault();
         // Send data to API
+        // Send DELETE request to API
         try {
-            const response = await fetch('http://localhost:3001/api/systems/', {
+            const response = await fetch(`http://localhost:3001/api/systems/${system_id}`, {
                 method: 'DELETE',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({
-                    system_name: formState.system_name,
-                    ip_address: formState.ip_address
-                })
+
             });
             const jsonData = await response.json();
             console.log(jsonData);
-        } catch (err) {
+        }
+        catch (err) {
             console.error(err.message);
         }
-        // Close Modal
-        setIsOpen(false);
+
+
+
+        // try {
+        //     const response = await fetch(`http://localhost:3001/api/systems/${system_id}`, {
+        //         method: 'DELETE',
+        //         // headers: { 'Content-Type': 'application/json' },
+        //         // body: JSON.stringify({
+        //         //     system_id: system_id.system_id,
+        //         // })
+        //     });
+        //     console.log(system_id.system_id)
+        //     const jsonData = await response.json();
+        //     console.log(jsonData);
+        // } catch (err) {
+        //     console.error(err.message);
+        // }
+        // // Close Modal
+        // setIsOpen(false);
     }
 
     function handleChange(event) {
