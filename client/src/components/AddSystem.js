@@ -69,12 +69,11 @@ function AddSystem() {
                 onAfterOpen={afterOpenModal}
                 onRequestClose={closeModal}
                 style={customStyles}
-                contentLabel="Example Modal"
             >
                 <h2 ref={(_subtitle) => (subtitle = _subtitle)}>Add New System</h2>
                 <form className='bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4'>
                     <div class="mb-4">
-                        <label class="block text-gray-700 text-sm font-bold mb-2" for="username">
+                        <label class="block text-gray-700 text-sm font-bold mb-2">
                             System Name
                         </label>
                         <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
@@ -85,7 +84,7 @@ function AddSystem() {
                             value={formState.system_name} />
                     </div>
                     <div class="mb-4">
-                        <label class="block text-gray-700 text-sm font-bold mb-2" for="username">
+                        <label class="block text-gray-700 text-sm font-bold mb-2">
                             IP Address
                         </label>
                         <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"

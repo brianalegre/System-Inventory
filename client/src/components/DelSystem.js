@@ -14,7 +14,7 @@ const customStyles = {
 
 Modal.setAppElement('#root');
 
-function DelSystem() {
+function DelSystem(checkboxState) {
     let subtitle;
 
     // States
@@ -39,8 +39,8 @@ function DelSystem() {
         event.preventDefault();
         // Send data to API
         try {
-            const response = await fetch('http://localhost:3001/api/systems', {
-                method: 'POST',
+            const response = await fetch('http://localhost:3001/api/systems/', {
+                method: 'DELETE',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({
                     system_name: formState.system_name,
@@ -61,43 +61,26 @@ function DelSystem() {
         setFormState({ ...formState, [event.target.id]: event.target.value });
     }
 
+
     return (
         <div>
-            <button onClick={openModal} className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Add System</button>
+            <button onClick={openModal} className="bg-red-400 hover:bg-red-600 text-white font-bold py-2 px-4 rounded">Delete System</button>
             <Modal
                 isOpen={modalIsOpen}
                 onAfterOpen={afterOpenModal}
                 onRequestClose={closeModal}
                 style={customStyles}
-                contentLabel="Example Modal"
             >
-                <h2 ref={(_subtitle) => (subtitle = _subtitle)}>Add New System</h2>
+                <h2 ref={(_subtitle) => (subtitle = _subtitle)}>Confirmation</h2>
                 <form className='bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4'>
                     <div class="mb-4">
-                        <label class="block text-gray-700 text-sm font-bold mb-2" for="username">
-                            System Name
+                        <label class="block text-gray-700 text-sm font-bold mb-2">
+                            Are you sure you want to delete this system?
                         </label>
-                        <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                            id="system_name"
-                            type="text"
-                            placeholder="System Name"
-                            onChange={handleChange}
-                            value={formState.system_name} />
-                    </div>
-                    <div class="mb-4">
-                        <label class="block text-gray-700 text-sm font-bold mb-2" for="username">
-                            IP Address
-                        </label>
-                        <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                            id="ip_address"
-                            type="text"
-                            placeholder="IP Address"
-                            onChange={handleChange}
-                            value={formState.ip_address} />
                     </div>
                 </form>
                 <div>
-                    <button onClick={submitModal}>Submit</button>
+                    <button onClick={submitModal}>Confirm</button>
                     <button onClick={closeModal}>Cancel</button>
                 </div>
             </Modal>
