@@ -19,10 +19,9 @@ export default function EditSystem({ checkboxState }) {
 
     // States
     const [modalIsOpen, setIsOpen] = useState(false);
-    const [formState, setFormState] = useState({ system_id: '' });
+    const [formState, setFormState] = useState({ system_name: '', ip_address: '' });
 
     // Get system_id from prop - checkboxState
-    const { system_id } = checkboxState
     // console.log('this is system_id from EditSystem:', system_id)
 
 
@@ -44,8 +43,13 @@ export default function EditSystem({ checkboxState }) {
         event.preventDefault();
 
         try {
-            const response = await fetch(`http://localhost:3001/api/systems/${system_id}`, {
+            const response = await fetch(`http://localhost:3001/api/systems/${checkboxState}`, {
                 method: 'PUT',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    system_name: formState.system_name,
+                    ip_address: formState.ip_address
+                })
 
             });
             const jsonData = await response.json();
@@ -54,25 +58,6 @@ export default function EditSystem({ checkboxState }) {
         catch (err) {
             console.error(err.message);
         }
-
-
-
-        // try {
-        //     const response = await fetch(`http://localhost:3001/api/systems/${system_id}`, {
-        //         method: 'DELETE',
-        //         // headers: { 'Content-Type': 'application/json' },
-        //         // body: JSON.stringify({
-        //         //     system_id: system_id.system_id,
-        //         // })
-        //     });
-        //     console.log(system_id.system_id)
-        //     const jsonData = await response.json();
-        //     console.log(jsonData);
-        // } catch (err) {
-        //     console.error(err.message);
-        // }
-        // // Close Modal
-        // setIsOpen(false);
     }
 
     function handleChange(event) {

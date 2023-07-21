@@ -23,8 +23,7 @@ export default function DelSystem({ checkboxState }) {
     const [formState, setFormState] = useState({ system_id: '' });
 
     // Get system_id from prop - checkboxState
-    const { system_id } = checkboxState
-    console.log('this is system_id from DelSystem:', system_id, checkboxState)
+    console.log('this is checkboxState from DelSystem:', checkboxState)
 
 
 
@@ -56,26 +55,9 @@ export default function DelSystem({ checkboxState }) {
         catch (err) {
             console.error(err.message);
         }
-
-
-
-        // try {
-        //     const response = await fetch(`http://localhost:3001/api/systems/${system_id}`, {
-        //         method: 'DELETE',
-        //         // headers: { 'Content-Type': 'application/json' },
-        //         // body: JSON.stringify({
-        //         //     system_id: system_id.system_id,
-        //         // })
-        //     });
-        //     console.log(system_id.system_id)
-        //     const jsonData = await response.json();
-        //     console.log(jsonData);
-        // } catch (err) {
-        //     console.error(err.message);
-        // }
-        // // Close Modal
-        // setIsOpen(false);
+        closeModal();
     }
+
 
     function handleChange(event) {
         // update formState
