@@ -14,8 +14,7 @@ const customStyles = {
 
 Modal.setAppElement('#root');
 
-export default function DelSystem({ checkboxState }) {
-    // function DelSystem(checkboxState) {
+export default function EditSystem({ checkboxState }) {
     let subtitle;
 
     // States
@@ -24,7 +23,7 @@ export default function DelSystem({ checkboxState }) {
 
     // Get system_id from prop - checkboxState
     const { system_id } = checkboxState
-    console.log('this is system_id from DelSystem:', system_id)
+    // console.log('this is system_id from EditSystem:', system_id)
 
 
 
@@ -43,11 +42,10 @@ export default function DelSystem({ checkboxState }) {
 
     const submitModal = async (event) => {
         event.preventDefault();
-        // Send data to API
-        // Send DELETE request to API
+
         try {
             const response = await fetch(`http://localhost:3001/api/systems/${system_id}`, {
-                method: 'DELETE',
+                method: 'PUT',
 
             });
             const jsonData = await response.json();
@@ -85,7 +83,7 @@ export default function DelSystem({ checkboxState }) {
 
     return (
         <div>
-            <button onClick={openModal} className="bg-red-400 hover:bg-red-600 text-white font-bold py-2 px-4 rounded">Delete System</button>
+            <button onClick={openModal} className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Edit System</button>
             <Modal
                 isOpen={modalIsOpen}
                 onAfterOpen={afterOpenModal}
@@ -96,7 +94,7 @@ export default function DelSystem({ checkboxState }) {
                 <form className='bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4'>
                     <div class="mb-4">
                         <label class="block text-gray-700 text-sm font-bold mb-2">
-                            Are you sure you want to delete this system?
+                            Are you sure you want to edit this system?
                         </label>
                     </div>
                 </form>
@@ -106,5 +104,6 @@ export default function DelSystem({ checkboxState }) {
                 </div>
             </Modal>
         </div>
-    )
+    );
 }
+

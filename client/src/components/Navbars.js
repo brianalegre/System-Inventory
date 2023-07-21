@@ -12,7 +12,7 @@ function Navbar() {
             {/* <img src='' alt='logo1' className='mx-10 h-6' /> */}
             <p className='text-white font-oleo-script text-2xl mx-10'>Inventory</p>
             <AddSystem />
-            <DelSystem />
+            {/* <DelSystem /> */}
             {/* <img src='' alt='logo2' className='mx-10 h-10' /> */}
         </div>
     )

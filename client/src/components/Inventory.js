@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import AddSystem from './AddSystem';
 import DelSystem from './DelSystem';
+import EditSystem from './EditSystem'
 
 
 export default function Inventory({ deviceInventory }) {
@@ -62,8 +63,11 @@ export default function Inventory({ deviceInventory }) {
 
     return (
         <div>
-            <AddSystem />
-            <DelSystem checkboxState={checkboxState} />
+            <div className='flex'>
+                <AddSystem />
+                <EditSystem checkboxState={checkboxState} />
+                <DelSystem checkboxState={checkboxState} />
+            </div>
             <div>
                 {/* {inventoryData} */}
                 <table className="min-w-full divide-y divide-gray-200">
@@ -90,7 +94,7 @@ export default function Inventory({ deviceInventory }) {
                     {inventoryData}
                 </table>
             </div>
-        </div>
+        </div >
 
 
     )
