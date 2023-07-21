@@ -25,7 +25,7 @@ export default function EditSystem({ checkboxState }) {
     console.log('this is system_id from EditSystem:', checkboxState)
 
 
-    
+
     function openModal() {
         setIsOpen(true);
     }
@@ -58,6 +58,7 @@ export default function EditSystem({ checkboxState }) {
         catch (err) {
             console.error(err.message);
         }
+        closeModal();
     }
 
     function handleChange(event) {
