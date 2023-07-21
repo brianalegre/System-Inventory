@@ -24,7 +24,7 @@ export default function DelSystem({ checkboxState }) {
 
     // Get system_id from prop - checkboxState
     const { system_id } = checkboxState
-    console.log('this is system_id from DelSystem:', system_id)
+    console.log('this is system_id from DelSystem:', system_id, checkboxState)
 
 
 
@@ -46,7 +46,7 @@ export default function DelSystem({ checkboxState }) {
         // Send data to API
         // Send DELETE request to API
         try {
-            const response = await fetch(`http://localhost:3001/api/systems/${system_id}`, {
+            const response = await fetch(`http://localhost:3001/api/systems/${checkboxState}`, {
                 method: 'DELETE',
 
             });
