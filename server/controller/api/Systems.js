@@ -78,5 +78,30 @@ router.delete('/:id', async (req, res) => {
     }
 })
 
+// Edit System
+router.put('/:id', async (req, res) => {
+    try {
+        // Edit System
+        const editSystem = await Systems.update(
+            {
+                system_name: req.body.system_name,
+                ip_address: req.body.ip_address,
+                state: req.body.state,
+            }
+            , {
+                where: { system_id: req.params.id },
+            })
+        // Response
+        if (!editSystem) {
+            res.status(404).json({ message: 'No System found with that ID' })
+        }
+        res.status(200).json('Success, system was updated')
+        // Catch errors
+    } catch (err) {
+        res.status(400).json('Something went wrong, editSystem', err)
+
+    }
+})
+
 // Export
 module.exports = router;

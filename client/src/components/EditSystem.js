@@ -22,10 +22,10 @@ export default function EditSystem({ checkboxState }) {
     const [formState, setFormState] = useState({ system_name: '', ip_address: '' });
 
     // Get system_id from prop - checkboxState
-    // console.log('this is system_id from EditSystem:', system_id)
+    console.log('this is system_id from EditSystem:', checkboxState)
 
 
-
+    
     function openModal() {
         setIsOpen(true);
     }
@@ -79,8 +79,25 @@ export default function EditSystem({ checkboxState }) {
                 <form className='bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4'>
                     <div class="mb-4">
                         <label class="block text-gray-700 text-sm font-bold mb-2">
-                            Are you sure you want to edit this system?
+                            System Name
                         </label>
+                        <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                            id="system_name"
+                            type="text"
+                            placeholder="System Name"
+                            onChange={handleChange}
+                            value={formState.system_name} />
+                    </div>
+                    <div class="mb-4">
+                        <label class="block text-gray-700 text-sm font-bold mb-2">
+                            IP Address
+                        </label>
+                        <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                            id="ip_address"
+                            type="text"
+                            placeholder="IP Address"
+                            onChange={handleChange}
+                            value={formState.ip_address} />
                     </div>
                 </form>
                 <div>
