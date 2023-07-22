@@ -65,22 +65,22 @@ function AddSystem() {
             >
                 <h2 className="flex justify-center font-bold underline m-1 p-1">Add New System</h2>
                 <form className='px-8 pt-6 pb-8 mb-4'>
-                    <div class="mb-4">
-                        <label class="block text-gray-700 text-sm font-bold mb-2">
+                    <div className="mb-4">
+                        <label className="block text-gray-700 text-sm font-bold mb-2">
                             System Name
                         </label>
-                        <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                        <input className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                             id="system_name"
                             type="text"
                             placeholder="System Name"
                             onChange={handleChange}
                             value={formState.system_name} />
                     </div>
-                    <div class="mb-4">
-                        <label class="block text-gray-700 text-sm font-bold mb-2">
+                    <div className="mb-4">
+                        <label className="block text-gray-700 text-sm font-bold mb-2">
                             IP Address
                         </label>
-                        <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                        <input className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                             id="ip_address"
                             type="text"
                             placeholder="IP Address"

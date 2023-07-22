@@ -69,8 +69,8 @@ export default function DelSystem({ checkboxState }) {
             >
                 <h2 className="flex justify-center font-bold underline m-1 p-1">Confirmation</h2>
                 <form className='px-8 pt-6 pb-8 mb-4'>
-                    <div class="mb-4">
-                        <label class="block text-gray-700 text-sm font-bold mb-2">
+                    <div className="mb-4">
+                        <label className="block text-gray-700 text-sm font-bold mb-2">
                             Are you sure you want to delete this system?
                         </label>
                     </div>
