@@ -19,12 +19,9 @@ export default function DelSystem({ checkboxState }) {
 
     // States
     const [modalIsOpen, setIsOpen] = useState(false);
-    const [formState, setFormState] = useState({ system_id: '' });
 
     // Get system_id from prop - checkboxState
     console.log('this is checkboxState from DelSystem:', checkboxState)
-
-
 
     function openModal() {
         setIsOpen(true);
@@ -51,13 +48,6 @@ export default function DelSystem({ checkboxState }) {
         }
         closeModal();
     }
-
-
-    function handleChange(event) {
-        // update formState
-        setFormState({ ...formState, [event.target.id]: event.target.value });
-    }
-
 
     return (
         <div>
