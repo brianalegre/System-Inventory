@@ -15,7 +15,6 @@ const customStyles = {
 Modal.setAppElement('#root');
 
 function AddSystem() {
-    let subtitle;
 
     // States
     const [modalIsOpen, setIsOpen] = useState(false);
@@ -24,11 +23,6 @@ function AddSystem() {
 
     function openModal() {
         setIsOpen(true);
-    }
-
-    function afterOpenModal() {
-        // references are now sync'd and can be accessed.
-        subtitle.style.color = '#f00';
     }
 
     function closeModal() {
@@ -63,15 +57,14 @@ function AddSystem() {
 
     return (
         <div>
-            <button onClick={openModal} className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Add System</button>
+            <button onClick={openModal} className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded w-36 m-1">Add System</button>
             <Modal
                 isOpen={modalIsOpen}
-                onAfterOpen={afterOpenModal}
                 onRequestClose={closeModal}
                 style={customStyles}
             >
-                <h2 ref={(_subtitle) => (subtitle = _subtitle)}>Add New System</h2>
-                <form className='bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4'>
+                <h2 className="flex justify-center font-bold underline m-1 p-1">Add New System</h2>
+                <form className='px-8 pt-6 pb-8 mb-4'>
                     <div class="mb-4">
                         <label class="block text-gray-700 text-sm font-bold mb-2">
                             System Name
@@ -95,9 +88,12 @@ function AddSystem() {
                             value={formState.ip_address} />
                     </div>
                 </form>
-                <div>
-                    <button onClick={submitModal}>Submit</button>
-                    <button onClick={closeModal}>Cancel</button>
+                <div className='flex justify-center'>
+                    <button onClick={submitModal}
+                        className="py-2.5 w-36 px-5 mr-2 mb-5 text-lg font-semibold focus:outline-none rounded-full text-center bg-green-300 hover:bg-green-700 text-black hover:text-gray-100 transition duration-300">
+                        Submit</button>
+                    <button onClick={closeModal}
+                        className="py-2.5 w-36 px-5 mr-2 mb-5 text-lg font-semibold focus:outline-none rounded-full text-center bg-red-300 hover:bg-red-700 text-black hover:text-gray-100 transition duration-300">Cancel</button>
                 </div>
             </Modal>
         </div>

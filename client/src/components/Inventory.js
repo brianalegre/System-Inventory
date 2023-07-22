@@ -63,7 +63,7 @@ export default function Inventory({ deviceInventory }) {
 
     return (
         <div>
-            <div className='flex'>
+            <div className='flex m-2 justify-center'>
                 <AddSystem />
                 <EditSystem checkboxState={checkboxState} />
                 <DelSystem checkboxState={checkboxState} />
