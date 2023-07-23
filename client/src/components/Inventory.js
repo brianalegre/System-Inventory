@@ -7,33 +7,21 @@ import EditSystem from './EditSystem'
 
 export default function Inventory({ deviceInventory }) {
 
-
-    // Inventory Component
-    // function Inventory(dataFromApi) {
-    // function Inventory(deviceInventory) {
-
-    //     // Save prop data to variable
-
-    //     console.log('deviceInventory: ', deviceInventory)
-
-    //     // Get data from prop - deviceInventory
-    //     // Map out each items returned into a table
-    //     // Use all data that is returned
+    // Get data from prop - deviceInventory
+    // Map out each items returned into a table
+    // Use all data that is returned
 
     // State for checkbox
     const [checkboxState, setCheckboxState] = useState([]);
 
     // Handle checkbox change
     const handleChange = (event) => {
-        setCheckboxState(event.target.value);
         // Update checkboxState
-        // setCheckboxState({ ...checkboxState, [event.target.id]: event.target.value });
-
+        setCheckboxState(event.target.value);
         console.log('checkboxState: ', checkboxState)
     }
 
     const inventoryData = deviceInventory.map((item) => (
-
         <tbody key={item.system_id} className="bg-white divide-y divide-gray-200 text-center">
             <tr>
                 <td className="px-6 py-4 whitespace-nowrap" data-id={item.system_id}>
@@ -68,7 +56,6 @@ export default function Inventory({ deviceInventory }) {
                 <DelSystem checkboxState={checkboxState} />
             </div>
             <div>
-                {/* {inventoryData} */}
                 <table className="min-w-full divide-y divide-gray-200">
                     <thead className="bg-gray-50 text-center">
                         <tr>
@@ -89,7 +76,6 @@ export default function Inventory({ deviceInventory }) {
                             </th>
                         </tr>
                     </thead>
-                    {/* center data */}
                     {inventoryData}
                 </table>
             </div>
@@ -98,6 +84,3 @@ export default function Inventory({ deviceInventory }) {
 
     )
 }
-
-// // Export Inventory
-// export default Inventory;

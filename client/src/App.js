@@ -3,7 +3,6 @@ import React, { useState, useEffect } from "react";
 import "./index.css";
 
 // Import Components
-import Search from "./Components/Search";
 import Inventory from "./Components/Inventory";
 import Navbar from "./Components/Navbars";
 
@@ -12,7 +11,6 @@ function App() {
 
   // useState to store data from API
   const [deviceInventory, setDeviceInventory] = useState([]);
-
 
   useEffect(() => {
     fetch('http://localhost:3001/api/systems/')
@@ -30,13 +28,10 @@ function App() {
   return (
     <div>
       <Navbar />
-      {/* <Search /> */}
-      {/* add prop */}
       <Inventory deviceInventory={deviceInventory} />
     </div>
   )
 };
-
 
 export default App;
 
