@@ -25,6 +25,7 @@ export default function EditSystem({ checkboxState }) {
 
 
 
+
     function openModal() {
         setIsOpen(true);
     }
@@ -53,11 +54,42 @@ export default function EditSystem({ checkboxState }) {
             console.error(err.message);
         }
         closeModal();
+        // Refresh page
+        window.location = '/inventory';
     }
 
     function handleChange(event) {
         // update formState
         setFormState({ ...formState, [event.target.id]: event.target.value });
+    }
+
+
+    // if checkboxState is empty, then return
+    if (checkboxState.length === 0) {
+        return (
+            <div>
+                <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded w-36 m-1">Edit System</button>
+                <Modal
+                    isOpen={modalIsOpen}
+                    onRequestClose={closeModal}
+                    style={customStyles}
+                >
+                    <h2 className="flex justify-center font-bold underline m-1 p-1">Edit System</h2>
+                    <form className='px-8 pt-6 pb-8 mb-4'>
+                        <div className="mb-4">
+                            <label className="block text-gray-700 text-sm font-bold mb-2">
+                                You Must Select A System First!
+                            </label>
+                        </div>
+                    </form>
+                    <div className='flex justify-center'>
+                        <button onClick={closeModal}
+                            className="py-2.5 w-36 px-5 mr-2 mb-5 text-lg font-semibold focus:outline-none rounded-full text-center bg-green-300 hover:bg-green-700 text-black hover:text-gray-100 transition duration-300">
+                            OK</button>
+                    </div>
+                </Modal>
+            </div>
+        )
     }
 
 
