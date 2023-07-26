@@ -95,6 +95,10 @@ router.put('/:id', async (req, res) => {
         if (!editSystem) {
             res.status(404).json({ message: 'No System found with that ID' })
         }
+        // if ip_address is not unique, return message on modal
+        // if (editSystem.ip_address === req.body.ip_address) {
+        //     res.status(400).json('IP Address already exists')
+        // }
         res.status(200).json('Success, system was updated')
         // Catch errors
     } catch (err) {

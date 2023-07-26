@@ -45,6 +45,8 @@ export default function EditSystem({ checkboxState }) {
                     system_name: formState.system_name,
                     ip_address: formState.ip_address
                 })
+                // if formState.ip_address is not unique, return message on modal
+
 
             });
             const jsonData = await response.json();
@@ -55,7 +57,7 @@ export default function EditSystem({ checkboxState }) {
         }
         closeModal();
         // Refresh page
-        window.location = '/inventory';
+        // window.location = '/inventory';
     }
 
     function handleChange(event) {
