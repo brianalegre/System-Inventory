@@ -41,7 +41,11 @@ export default function Inventory({ deviceInventory }) {
                     {item.ip_address}
                 </td>
                 <td className="px-6 py-4 whitespace-nowrap">
-                    {item.state}
+                    {item.state === true ? (
+                        "On"
+                    ) : (
+                        "Off"
+                    )}
                 </td>
             </tr>
         </tbody >
