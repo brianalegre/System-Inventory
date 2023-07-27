@@ -28,6 +28,7 @@ router.get('/:system_id', async (req, res) => {
         // Query by system_id
         const getSingleSystem = await Systems.findByPk(req.params.system_id, {
         })
+        console.log('hello from getSingleSystem')
 
         // If no system found
         if (!getSingleSystem) {

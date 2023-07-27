@@ -49,7 +49,7 @@ function AddSystem() {
         // Close Modal
         setIsOpen(false);
         // Refresh page
-        window.location = '/inventory';
+        // window.location = '/inventory';
     }
 
     function handleChange(event) {

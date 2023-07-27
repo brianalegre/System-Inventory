@@ -48,7 +48,7 @@ export default function DelSystem({ checkboxState }) {
         }
         closeModal();
         // Refresh page
-        window.location = '/inventory';
+        // window.location = '/inventory';
     }
 
     return (
