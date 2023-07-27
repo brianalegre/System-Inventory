@@ -33,13 +33,19 @@ router.get('/:system_id', async (req, res) => {
         // If no system found
         if (!getSingleSystem) {
             res.status(404).json({ message: 'No System Found with that ID' })
+        console.log('hello from getSingleSystem')
+
         }
 
         // Return data
         res.status(200).json(getSingleSystem)
+        console.log('hello from getSingleSystem')
+
 
     } catch (err) {
         res.status(500).json('getSingleSystem - something went wrong')
+        console.log('hello from getSingleSystem')
+
     }
 })
 
