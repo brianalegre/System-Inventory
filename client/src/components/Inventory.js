@@ -11,6 +11,8 @@ export default function Inventory({ deviceInventory }) {
     // Map out each items returned into a table
     // Use all data that is returned
 
+    console.log('inventoryData: ', deviceInventory) 
+
     // State for checkbox
     const [checkboxState, setCheckboxState] = useState([]);
 
